@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://pub.brani.dev/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/categories/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/categories/demo/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/demo/</loc>
+        <lastmod>2025-08-13T00:00:00Z</lastmod>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/demo/</loc>
+    </url>
+</urlset>

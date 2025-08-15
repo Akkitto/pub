@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% import "macros/post_macros.html" as post_macros %}
+
+{% block title %}
+    {% if page.title %}
+    {{ page.title }}
+    {% else %}
+    {{ super() }}
+    {% endif %}
+{% endblock title %}
+
+{% block header %}
+    {{ super() }}
+{% endblock header %}
+
+{% block main %}
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">{{ page.title }}</h1>
+        <data class="muted">{{ post_macros::meta(page=page) }}</data>
+    </header>
+
+    <article itemprop="articleBody">
+        {% if page.summary and page.summary != page.content %}
+            {{ page.summary | safe }}
+
+            {% if page.extra.toc | default(value=false) and page.toc %}
+              {% include "partials/toc.html" %}
+            {% endif %}
+
+            <!-- Render the rest of the content after removing the summary portion -->
+            {{ page.content | replace(from=page.summary, to="") | safe }}
+
+        {% else %}
+            <!-- If no summary separate from content, just render content -->
+            {{ page.content | safe }}
+        {% endif %}
+    </article>
+
+    <!-- Comment section -->
+    {% block comments %}
+      {% if config.extra.comments | default(value="false") %}
+        {% if page.extra.comments | default(value="true")%}
+          {% include "_giscus_script.html" %}
+        {% endif %}
+      {% endif %}
+    {% endblock comments %}
+
+
+    <!-- Page footer -->
+    {% include "partials/footer.html" %}
+</article>
+
+{% endblock main %}

@@ -1,0 +1,166 @@
+#!/bin/bash
+############################################################################
+# Copyright © 2025  Daniel Braniewski                                      #
+#                                                                          #
+# This program is free software: you can redistribute it and/or modify     #
+# it under the terms of the GNU Affero General Public License as           #
+# published by the Free Software Foundation, either version 3 of the       #
+# License, or (at your option) any later version.                          #
+#                                                                          #
+# This program is distributed in the hope that it will be useful,          #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of           #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the             #
+# GNU Affero General Public License for more details.                      #
+#                                                                          #
+# You should have received a copy of the GNU Affero General Public License #
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.   #
+############################################################################
+
+
+# Stamp RFC3339 `date` into NEW Markdown files that lack a front-matter date.
+# - Supports TOML (+++) and YAML (---); adds TOML if no front matter.
+# - Tolerates CRLF and surrounding spaces on fence lines.
+# Zola date formats: RFC3339 or YYYY-MM-DD, unquoted in TOML.
+# Docs: https://www.getzola.org/documentation/content/page/
+set -euo pipefail
+
+# Which files? Only newly added markdown files in the index.
+# Tip: keep it broad; structure under /content is common but not required.
+declare -r NEW_MD_FILES="$(git diff --cached --name-only --diff-filter=A -- 'content/*.md')"
+[[ -z "$NEW_MD_FILES" ]] && exit 0
+
+declare -r DEFAULT_TZ="Europe/Berlin"
+declare -r STAMP="$(TZ="${TZ:-$DEFAULT_TZ}" date -Iseconds)"  # e.g. 2025-08-15T18:45:12+02:00
+
+stamp_file() {
+  declare -r f="$1"
+  [[ ! -f "$f" ]] && return 0
+  [[ "$(basename "$f")" == "_index.md" ]] && return 0
+
+  # First line decides the front-matter kind (tolerate spaces/CR)
+  # Use read to avoid subshell and keep speed.
+  IFS= read -r first_line < "$f" || true
+  # Normalize for matching only (keep the original on disk)
+  first_line="${first_line%$'\r'}"            # strip trailing CR if present
+  first_line="${first_line#"${first_line%%[![:space:]]*}"}"  # ltrim
+  first_line="${first_line%"${first_line##*[![:space:]]}"}"  # rtrim
+
+  # Helper to run awk transformer. Writes only if content changes.
+  transform_toml() {
+    awk -v stamp="$STAMP" '
+      function has_cr(s) { return s ~ /\r$/ }
+      function trim_spaces(s) {
+        sub(/\r$/,"",s)
+        gsub(/^[[:space:]]+|[[:space:]]+$/,"",s)
+        return s
+      }
+      BEGIN { fm=0; have=0; inserted=0 }
+      {
+        orig = $0
+        cr   = has_cr(orig) ? "\r" : ""
+        line = trim_spaces(orig)
+
+        if (NR==1 && line == "+++") { fm=1; print orig; next }
+
+        if (fm==1) {
+          # If date key is present but EMPTY -> replace inline
+          if (line ~ /^date[[:space:]]*=[[:space:]]*$/) {
+            printf "date = %s%s\n", stamp, cr
+            have=1; inserted=1
+            next
+          }
+          # If date key has any non-empty value -> mark as present
+          if (line ~ /^date[[:space:]]*=[[:space:]]*./) { have=1 }
+          # Closing fence -> insert if still missing
+          if (line == "+++") {
+            if (!have) { printf "date = %s%s\n", stamp, cr; inserted=1 }
+            fm=0
+          }
+        }
+        print orig
+      }
+      END { if (inserted) exit 0; else exit 2 }
+    ' "$f" > "$f.tmp" || rc=$?
+    rc=${rc:-0}
+    if [[ $rc -eq 0 ]]; then
+      mv "$f.tmp" "$f"
+      git add "$f"
+    else
+      rm -f "$f.tmp"
+    fi
+    return 0
+  }
+
+  transform_yaml() {
+    awk -v stamp="$STAMP" '
+      function has_cr(s) { return s ~ /\r$/ }
+      function trim_spaces(s) {
+        sub(/\r$/,"",s)
+        gsub(/^[[:space:]]+|[[:space:]]+$/,"",s)
+        return s
+      }
+      BEGIN { fm=0; have=0; inserted=0 }
+      {
+        orig = $0
+        cr   = has_cr(orig) ? "\r" : ""
+        line = trim_spaces(orig)
+
+        if (NR==1 && line == "---") { fm=1; print orig; next }
+
+        if (fm==1) {
+          if (line ~ /^date[[:space:]]*:[[:space:]]*$/) {
+            printf "date: %s%s\n", stamp, cr
+            have=1; inserted=1
+            next
+          }
+          if (line ~ /^date[[:space:]]*:[[:space:]]*./) { have=1 }
+          if (line == "---") {
+            if (!have) { printf "date: %s%s\n", stamp, cr; inserted=1 }
+            fm=0
+          }
+        }
+        print orig
+      }
+      END { if (inserted) exit 0; else exit 2 }
+    ' "$f" > "$f.tmp" || rc=$?
+    rc=${rc:-0}
+    if [[ $rc -eq 0 ]]; then
+      mv "$f.tmp" "$f"
+      git add "$f"
+    else
+      rm -f "$f.tmp"
+    fi
+    return 0
+  }
+
+  add_min_toml() {
+    # Prepend minimal TOML front matter with date; preserve file EOL by probing first line.
+    declare -r has_crlf="$(
+      IFS= read -r probe < "$f" && [[ "${probe%$'\r'}"$'\r' == "$probe" ]] && echo 1 || echo 0
+    )"
+    declare -r EOL=$([[ "$has_crlf" == 1 ]] && printf '\r\n' || printf '\n')
+    {
+      printf '+++%s' "$EOL"
+      printf 'date = %s%s' "$STAMP" "$EOL"
+      printf '+++%s%s' "$EOL" "$EOL"
+      cat -- "$f"
+    } > "$f.tmp"
+    mv "$f.tmp" "$f"
+    git add "$f"
+  }
+
+  if [[ "$first_line" == "+++" ]]; then
+    transform_toml; return 0
+  elif [[ "$first_line" == "---" ]]; then
+    transform_yaml; return 0
+  else
+    add_min_toml; return 0
+  fi
+}
+
+# shellcheck disable=SC2086
+for f in $NEW_MD_FILES; do
+  stamp_file "$f"
+done
+
+exit 0

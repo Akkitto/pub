@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block title %}Posts Tagged "{{ term.name }}"{% endblock title %}
+{% block og_title %}Posts Tagged "{{ term.name }}"{% endblock og_title %}
+{% block twitter_title %}Posts Tagged "{{ term.name }}"{% endblock twitter_title %}
+
+{% block meta_description %}
+<meta name="description" content="Discover articles tagged '{{ term.name }}' in this site index." />
+  <meta property="og:description" content="Discover articles tagged '{{ term.name }}' in this site index." />
+  <meta property="twitter:description" content="Discover articles tagged '{{ term.name }}' in this site index." />
+{% endblock meta_description %}
+
+{% block content %}
+    {% block header %}
+        {{ super() }}
+    {% endblock header %}
+
+    <h1>{{ term.name }}</h1>
+
+    {% for page in term.pages %}
+        {{ post_macros::page_in_list(page=page) }}
+    {% endfor %}
+{% endblock content %}

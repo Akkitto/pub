@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Pub</title>
+    <subtitle>Daniel&#x27;s published works.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://pub.brani.dev/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://pub.brani.dev/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-08-13T00:00:00+00:00</updated>
+    <id>https://pub.brani.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Demo</title>
+        <published>2025-08-13T00:00:00+00:00</published>
+        <updated>2025-08-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://pub.brani.dev/demo/"/>
+        <id>https://pub.brani.dev/demo/</id>
+        
+        <content type="html" xml:base="https://pub.brani.dev/demo/">&lt;!--
+Comprehensive Markdown Demo (CommonMark + GFM + GitHub extras)
+Shows: headings, paragraphs, emphasis, code (inline &amp; fenced), syntax highlighting,
+blockquotes, lists (ordered&#x2F;unordered&#x2F;nested), task lists, tables, links (inline &amp; reference),
+images, autolinks, emojis, footnotes, strikethrough, collapsible sections (&lt;details&gt;),
+HTML inline, hard&#x2F;soft breaks, math (GitHub), Mermaid diagrams, and callouts.
+--&gt;
+&lt;h1 id=&quot;books-markdown-feature-showcase&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#books-markdown-feature-showcase&quot; aria-label=&quot;Anchor link for: books-markdown-feature-showcase&quot;&gt;📚 Markdown Feature Showcase&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Goal:&lt;&#x2F;strong&gt; A single file demonstrating the &lt;em&gt;most commonly supported&lt;&#x2F;em&gt; Markdown features on GitHub (GFM).&lt;br &#x2F;&gt;
+Use this file to test renderers or as a quick reference.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#scope&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;table-of-contents&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#table-of-contents&quot; aria-label=&quot;Anchor link for: table-of-contents&quot;&gt;Table of Contents&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;!-- - [📚 Markdown Feature Showcase](#-markdown-feature-showcase)
+  - [Table of Contents](#table-of-contents)
+  - [Headings](#headings)
+- [H1](#h1)
+  - [H2](#h2)
+    - [H3](#h3)
+      - [H4](#h4)
+        - [H5](#h5)
+          - [H6](#h6)
+  - [Paragraphs \&amp; Line Breaks](#paragraphs--line-breaks)
+  - [Emphasis](#emphasis)
+  - [Inline Code \&amp; Escapes](#inline-code--escapes)
+  - [Blockquotes](#blockquotes)
+  - [Lists](#lists)
+    - [Unordered](#unordered)
+    - [Ordered](#ordered)
+  - [Task Lists (GFM)](#task-lists-gfm)
+  - [Links](#links)
+  - [Images](#images)
+  - [Tables (GFM)](#tables-gfm)
+  - [Code Blocks](#code-blocks)
+      - [Python](#python)
+      - [Kotlin](#kotlin)
+      - [Bash](#bash)
+  - [Footnotes (GFM)](#footnotes-gfm)
+  - [Collapsible Sections](#collapsible-sections)
+  - [Strikethrough \&amp; Emoji (GFM)](#strikethrough--emoji-gfm)
+  - [Math (GitHub)](#math-github)
+  - [Mermaid Diagrams (GitHub)](#mermaid-diagrams-github)
+  - [Inline HTML (Portable Snippets)](#inline-html-portable-snippets)
+  - [Reference-Style Definitions](#reference-style-definitions) --&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;headings&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#headings&quot; aria-label=&quot;Anchor link for: headings&quot;&gt;Headings&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;h1&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#h1&quot; aria-label=&quot;Anchor link for: h1&quot;&gt;H1&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;h2&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#h2&quot; aria-label=&quot;Anchor link for: h2&quot;&gt;H2&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;h3&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#h3&quot; aria-label=&quot;Anchor link for: h3&quot;&gt;H3&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;h4&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#h4&quot; aria-label=&quot;Anchor link for: h4&quot;&gt;H4&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;h5 id=&quot;h5&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#h5&quot; aria-label=&quot;Anchor link for: h5&quot;&gt;H5&lt;&#x2F;a&gt;&lt;&#x2F;h5&gt;
+&lt;h6 id=&quot;h6&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#h6&quot; aria-label=&quot;Anchor link for: h6&quot;&gt;H6&lt;&#x2F;a&gt;&lt;&#x2F;h6&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;paragraphs-line-breaks&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#paragraphs-line-breaks&quot; aria-label=&quot;Anchor link for: paragraphs-line-breaks&quot;&gt;Paragraphs &amp;amp; Line Breaks&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;A normal paragraph flows as expected.&lt;br &#x2F;&gt;
+A &lt;strong&gt;hard line break&lt;&#x2F;strong&gt; uses two spaces at the end of the line.&lt;br &#x2F;&gt;
+This line starts a new line without a blank paragraph.&lt;&#x2F;p&gt;
+&lt;p&gt;This is a new paragraph (separated by a blank line).&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;emphasis&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#emphasis&quot; aria-label=&quot;Anchor link for: emphasis&quot;&gt;Emphasis&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Italic&lt;&#x2F;em&gt; using single asterisks or underscores.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Bold&lt;&#x2F;strong&gt; using double asterisks or underscores.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Bold+Italic&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; with triple markers.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Inline code&lt;&#x2F;code&gt; can mix with &lt;strong&gt;bold&lt;&#x2F;strong&gt; and &lt;em&gt;italic&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;inline-code-escapes&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#inline-code-escapes&quot; aria-label=&quot;Anchor link for: inline-code-escapes&quot;&gt;Inline Code &amp;amp; Escapes&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Use backticks for inline code like &lt;code&gt;`ls -la`&lt;&#x2F;code&gt; or to show backticks themselves:
+&lt;code&gt;`code with a backtick \` inside`&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Escaping characters: *not bold*, _not italic_, ~not tilde~.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;blockquotes&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#blockquotes&quot; aria-label=&quot;Anchor link for: blockquotes&quot;&gt;Blockquotes&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A single-level quote.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Can include lists&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;And&lt;&#x2F;strong&gt; emphasis&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nested quote level 2&lt;br &#x2F;&gt;
+Even &lt;strong&gt;bold&lt;&#x2F;strong&gt; here.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;lists&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#lists&quot; aria-label=&quot;Anchor link for: lists&quot;&gt;Lists&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;unordered&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#unordered&quot; aria-label=&quot;Anchor link for: unordered&quot;&gt;Unordered&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Item A
+&lt;ul&gt;
+&lt;li&gt;Nested A.1
+&lt;ul&gt;
+&lt;li&gt;Nested A.1.a&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Item B&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;ordered&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#ordered&quot; aria-label=&quot;Anchor link for: ordered&quot;&gt;Ordered&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Step one&lt;&#x2F;li&gt;
+&lt;li&gt;Step two
+&lt;ol&gt;
+&lt;li&gt;Sub-step two.a&lt;&#x2F;li&gt;
+&lt;li&gt;Sub-step two.b&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Step three&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;task-lists-gfm&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#task-lists-gfm&quot; aria-label=&quot;Anchor link for: task-lists-gfm&quot;&gt;Task Lists (GFM)&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Implement feature&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Write tests
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Unit tests&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Integration tests&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Ship 🚀&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;links&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#links&quot; aria-label=&quot;Anchor link for: links&quot;&gt;Links&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Inline link: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&quot; title=&quot;GitHub Home&quot;&gt;GitHub&lt;&#x2F;a&gt;.&lt;br &#x2F;&gt;
+Reference link: &lt;a href=&quot;https:&#x2F;&#x2F;commonmark.org&quot; title=&quot;CommonMark Spec&quot;&gt;CommonMark&lt;&#x2F;a&gt;.&lt;br &#x2F;&gt;
+Autolink: https:&#x2F;&#x2F;commonmark.org&lt;&#x2F;p&gt;
+&lt;p&gt;You can also link to a section like &lt;a href=&quot;https:&#x2F;&#x2F;pub.brani.dev&#x2F;demo&#x2F;#task-lists-gfm&quot;&gt;Task Lists&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;images&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#images&quot; aria-label=&quot;Anchor link for: images&quot;&gt;Images&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Inline image:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;github.githubassets.com&#x2F;images&#x2F;modules&#x2F;logos_page&#x2F;Octocat.png&quot; alt=&quot;Octocat waving&quot; title=&quot;The Octocat&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Reference image:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;commons&#x2F;4&#x2F;48&#x2F;Markdown-mark.svg&quot; alt=&quot;Markdown Logo&quot; title=&quot;Markdown Logo&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;tables-gfm&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#tables-gfm&quot; aria-label=&quot;Anchor link for: tables-gfm&quot;&gt;Tables (GFM)&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Feature&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Supported&lt;&#x2F;th&gt;&lt;th&gt;Notes&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Alignment&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;Use &lt;code&gt;:---&lt;&#x2F;code&gt; left, &lt;code&gt;:---:&lt;&#x2F;code&gt; center, &lt;code&gt;---:&lt;&#x2F;code&gt; right&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Task lists&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;GFM only&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Footnotes&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;✅&lt;&#x2F;td&gt;&lt;td&gt;GFM only&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;HTML passthrough&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;⚠️&lt;&#x2F;td&gt;&lt;td&gt;Limited; depends on renderer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;code-blocks&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#code-blocks&quot; aria-label=&quot;Anchor link for: code-blocks&quot;&gt;Code Blocks&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Fenced code blocks support an &lt;strong&gt;info string&lt;&#x2F;strong&gt; for syntax highlighting.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;python&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#python&quot; aria-label=&quot;Anchor link for: python&quot;&gt;Python&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#0f1419;color:#bfbab0;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;# A tiny Python example with docstring and typing
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;# Docs: https:&#x2F;&#x2F;docs.python.org&#x2F;3&#x2F;library&#x2F;typing.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;__future__ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;annotations
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;typing &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;Iterable&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;List
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb454;&quot;&gt;squares&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;nums&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span&gt;Iterable[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#39bae6;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt;]) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;-&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;List[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#39bae6;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt;]:
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;&amp;quot;&amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;  Return a list of squared numbers.
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;  &amp;quot;&amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;[n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;* &lt;&#x2F;span&gt;&lt;span&gt;n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span&gt;nums]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;__name__ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;__main__&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;  data &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07178;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;Input:&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span&gt;data)
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07178;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;Squares:&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb454;&quot;&gt;squares&lt;&#x2F;span&gt;&lt;span&gt;(data))
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;kotlin&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#kotlin&quot; aria-label=&quot;Anchor link for: kotlin&quot;&gt;Kotlin&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;kotlin&quot; style=&quot;background-color:#0f1419;color:#bfbab0;&quot; class=&quot;language-kotlin &quot;&gt;&lt;code class=&quot;language-kotlin&quot; data-lang=&quot;kotlin&quot;&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;&#x2F;&#x2F; Simple Kotlin example (no external libraries required)
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;&#x2F;&#x2F; Kotlin docs: https:&#x2F;&#x2F;kotlinlang.org&#x2F;docs&#x2F;basic-syntax.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;fun &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb454;&quot;&gt;greet&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span&gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;&#x2F;&#x2F; Returns a greeting message
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;Hello, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;$name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;!&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;fun &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb454;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;val &lt;&#x2F;span&gt;&lt;span style=&quot;color:#59c2ff;&quot;&gt;names &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; listOf(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;Ada&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;Alan&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;Akito&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;&#x2F;&#x2F; Print greetings
+&lt;&#x2F;span&gt;&lt;span&gt;  names&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;forEach { println(greet(it)) }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;bash&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bash&quot; aria-label=&quot;Anchor link for: bash&quot;&gt;Bash&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#0f1419;color:#bfbab0;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;# Bash snippet with immutable variables (readonly)
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5c6773;&quot;&gt;# (Note: This is a demonstration snippet, not a script header)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;declare &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;-r &lt;&#x2F;span&gt;&lt;span&gt;GREETING&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;hello&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;declare &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;-r &lt;&#x2F;span&gt;&lt;span&gt;TARGET&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29668;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;world&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07178;&quot;&gt;printf &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;#39;%s, %s!\n&amp;#39; &amp;quot;$&lt;&#x2F;span&gt;&lt;span&gt;GREETING&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot; &amp;quot;$&lt;&#x2F;span&gt;&lt;span&gt;TARGET&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tip: Use &lt;code&gt;```&lt;&#x2F;code&gt; fences. If you need to show triple backticks &lt;em&gt;inside&lt;&#x2F;em&gt; a code block, fence with four backticks:&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;pre data-lang=&quot;text&quot; style=&quot;background-color:#0f1419;color:#bfbab0;&quot; class=&quot;language-text &quot;&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&lt;span&gt;```python
+&lt;&#x2F;span&gt;&lt;span&gt;print(&amp;quot;This is shown literally.&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span&gt;```
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;footnotes-gfm&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#footnotes-gfm&quot; aria-label=&quot;Anchor link for: footnotes-gfm&quot;&gt;Footnotes (GFM)&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;You can cite a footnote like this.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#why&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; You can reuse it&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#why&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; and also have multiple footnotes.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#second&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;collapsible-sections&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#collapsible-sections&quot; aria-label=&quot;Anchor link for: collapsible-sections&quot;&gt;Collapsible Sections&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;details&gt;
+  &lt;summary&gt;Click to expand: Release Notes (example)&lt;&#x2F;summary&gt;
+&lt;ul&gt;
+&lt;li&gt;Added: Footnotes support&lt;&#x2F;li&gt;
+&lt;li&gt;Fixed: Table rendering on mobile&lt;&#x2F;li&gt;
+&lt;li&gt;Deprecated: Legacy callouts&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;details&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;strikethrough-emoji-gfm&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#strikethrough-emoji-gfm&quot; aria-label=&quot;Anchor link for: strikethrough-emoji-gfm&quot;&gt;Strikethrough &amp;amp; Emoji (GFM)&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;del&gt;Deprecated feature&lt;&#x2F;del&gt; (no longer in use)&lt;&#x2F;li&gt;
+&lt;li&gt;Emojis: 🎉 🚀 ☕&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;math-github&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#math-github&quot; aria-label=&quot;Anchor link for: math-github&quot;&gt;Math (GitHub)&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Inline math: $E = mc^2$.&lt;&#x2F;p&gt;
+&lt;p&gt;Block math:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;math&quot; style=&quot;background-color:#0f1419;color:#bfbab0;&quot; class=&quot;language-math &quot;&gt;&lt;code class=&quot;language-math&quot; data-lang=&quot;math&quot;&gt;&lt;span&gt;\int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;mermaid-diagrams-github&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#mermaid-diagrams-github&quot; aria-label=&quot;Anchor link for: mermaid-diagrams-github&quot;&gt;Mermaid Diagrams (GitHub)&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;mermaid&quot; style=&quot;background-color:#0f1419;color:#bfbab0;&quot; class=&quot;language-mermaid &quot;&gt;&lt;code class=&quot;language-mermaid&quot; data-lang=&quot;mermaid&quot;&gt;&lt;span&gt;flowchart TD
+&lt;&#x2F;span&gt;&lt;span&gt;  A[Start] --&amp;gt; B{Is it Markdown?}
+&lt;&#x2F;span&gt;&lt;span&gt;  B -- Yes --&amp;gt; C[Render nicely]
+&lt;&#x2F;span&gt;&lt;span&gt;  B -- No  --&amp;gt; D[Convert or skip]
+&lt;&#x2F;span&gt;&lt;span&gt;  C --&amp;gt; E[Done]
+&lt;&#x2F;span&gt;&lt;span&gt;  D --&amp;gt; E[Done]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;inline-html-portable-snippets&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#inline-html-portable-snippets&quot; aria-label=&quot;Anchor link for: inline-html-portable-snippets&quot;&gt;Inline HTML (Portable Snippets)&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Press &lt;kbd&gt;Ctrl&lt;&#x2F;kbd&gt; + &lt;kbd&gt;C&lt;&#x2F;kbd&gt; to copy. &lt;small&gt;Small print can be styled with HTML when allowed.&lt;&#x2F;small&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;&#x2F;strong&gt; Some renderers sanitize or disallow certain HTML tags.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;reference-style-definitions&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#reference-style-definitions&quot; aria-label=&quot;Anchor link for: reference-style-definitions&quot;&gt;Reference-Style Definitions&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;hr &#x2F;&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;scope&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;&lt;em&gt;Scope:&lt;&#x2F;em&gt; This file targets &lt;strong&gt;CommonMark + GFM&lt;&#x2F;strong&gt; as rendered on GitHub. Some features (math, Mermaid, footnotes, task lists) are GitHub-specific.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;why&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;Footnotes are great for adding side-notes without cluttering the main text.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;second&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
+&lt;p&gt;Another footnote example referencing additional context or sources.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+</feed>

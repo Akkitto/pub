@@ -1,0 +1,10 @@
+{# templates/_base.html #}
+{% extends "radion/templates/_base.html" %}
+
+{# Append to the shared scripts block so it appears on all pages.
+   `super()` keeps Radion's own scripts (theme toggle, search, MathJax, etc.)
+   and your script runs AFTER them. #}
+{% block scripts %}
+  {{ super() }}
+  <script defer src="{{ get_url(path='js/codeblock.js', trailing_slash=false) | safe }}"></script>
+{% endblock scripts %}

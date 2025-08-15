@@ -1,0 +1,26 @@
+/*
+ * Zola static: https://www.getzola.org/documentation/getting-started/directory-structure/#static
+ * get_url helper: https://www.getzola.org/documentation/templates/overview/#get_url
+ * @font-face reference: https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face
+ */
+
+ /* Original theme's SCSS, which is partially extended or overriden in this file. */
+@use "../themes/radion/sass/site.scss";
+
+/*
+ * ShureTechMono Nerd Font (Mono)
+ */
+@font-face {
+  /* You choose the public family name here */
+  /* Overwrite default family from theme with custom one. */
+  font-family: "JetBrains Mono";
+  /* Path relative to the site root after Zola builds */
+  src: url("/fonts/ShareTechMono/ShureTechMonoNerdFontMono-Regular.ttf") format("truetype");
+  font-weight: 400;      /* this file is Regular */
+  font-style: normal;
+  font-display: swap;    /* avoids FOIT; allows quick text paint */
+}
+
+code, pre, kbd, samp, .mono {
+  font-family: var(--mono);
+}
