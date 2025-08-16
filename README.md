@@ -3,10 +3,20 @@
 Published works, based on transporting general information mostly through the means of natural language.
 
 ## Usage
+
+### Publish
 ```
-just init
-just pub
+just
 ```
+
+Then, commit & push.
+
+### View Local
+```
+just serve
+```
+
+Live-reloads site changes.
 
 ## Tech Stack
 * [Zola](https://www.getzola.org/)

@@ -1,9 +1,0 @@
-{# Macro that emits YAML for category + tags with 2-space indentation.
-   Docs: https://keats.github.io/tera/docs/#macros #}
-{% macro render(page) %}
-category: {% if page.taxonomies and page.taxonomies.categories and page.taxonomies.categories | length > 0 %}'{{ page.taxonomies.categories[0] | replace(from="'", to="''") }}'{% else %}null{% endif %}
-tags:{% if page.taxonomies and page.taxonomies.tags and page.taxonomies.tags | length > 0 %}
-{% for t in page.taxonomies.tags %}  - '{{ t | replace(from="'", to="''") }}'
-{% endfor %}{% else %} []
-{% endif %}
-{% endmacro %}
