@@ -1,5 +1,6 @@
 ---
 title: Demo
+description: "This is a demonstration of Markdown capabilities in Zola."
 date: "2025-08-13 00:00:00 +00:00"
 taxonomies:
   categories:

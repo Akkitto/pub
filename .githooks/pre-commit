@@ -144,6 +144,7 @@ stamp_file() {
     >&2 printf '  Example YAML:\n'
     >&2 printf '    ---
     title: Demo
+    description: "This is a demonstration of front matter."
     date: # date will be auto-added by the hook (unquoted RFC3339)
     taxonomies:
       categories:
@@ -156,6 +157,7 @@ stamp_file() {
     >&2 printf '  Example TOML:\n'
     >&2 printf '    +++
     title = "Demo"
+    description = "This is a demonstration of front matter."
     date = # date will be auto-added by the hook (unquoted RFC3339)
     [taxonomies]
     categories = ["demo"]
@@ -167,6 +169,8 @@ stamp_file() {
     +++
 
 '
+  >&2 printf '\n\n'
+  >&2 printf '  More information about front matter: https://www.getzola.org/documentation/content/section/#front-matter'
   }
 
   if [[ "$first_line" == "+++" ]]; then
