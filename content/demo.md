@@ -9,6 +9,10 @@ taxonomies:
     - demo
 ---
 
+This is a demonstration of Markdown capabilities in Zola.
+
+<!-- more -->
+
 <!--
 Comprehensive Markdown Demo (CommonMark + GFM + GitHub extras)
 Shows: headings, paragraphs, emphasis, code (inline & fenced), syntax highlighting,
