@@ -22,6 +22,7 @@ zola          := env_var_or_default("ZOLA", "zola")
 script_hooks  := root / "utils" / "git_hook_install.nu"
 script_deploy := root / "utils" / "deploy_raw.nu"
 script_cname  := root / "utils" / "deploy_cname.nu"
+script_jekyll := root / "utils" / "bypass_jekyll.nu"
 script_art    := root / "utils" / "init_article.nu"
 config        := root / "config.toml"
 
@@ -29,7 +30,7 @@ config        := root / "config.toml"
 export ZOLA_ENV := env_var_or_default("ZOLA_ENV", "production")
 
 # Orchestrator: hooks first, then Zola
-init: git-hooks zola-setup github-cname
+init: git-hooks zola-setup github-cname github-jekyll
   @echo "✓ Hooks installed, Zola initialised, Articles published (ZOLA_ENV=${ZOLA_ENV})."
 
 # Publish complete with bells & whistles
@@ -49,6 +50,11 @@ _check-bin cmd:
 github-cname:
   @just _check-bin {{nu}}
   @"{{nu}}" "{{script_cname}}"
+
+# Re-bypass Jekyll for Github Pages
+github-jekyll:
+  @just _check-bin {{nu}}
+  @"{{nu}}" "{{script_jekyll}}"
 
 # Install Git hooks via Nushell script
 git-hooks:
