@@ -192,7 +192,7 @@ if __name__ == "__main__":
   data = [1, 2, 3, 4]
   print("Input:", data)
   print("Squares:", squares(data))
-````
+```
 
 #### Kotlin
 
@@ -302,5 +302,3 @@ Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy. <small>Small print can be styled w
 [^why]: Footnotes are great for adding side-notes without cluttering the main text.
 
 [^second]: Another footnote example referencing additional context or sources.
-
-```

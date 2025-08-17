@@ -193,7 +193,7 @@ content: |
     data = [1, 2, 3, 4]
     print("Input:", data)
     print("Squares:", squares(data))
-  ````
+  ```
 
   #### Kotlin
 
@@ -303,5 +303,3 @@ content: |
   [^why]: Footnotes are great for adding side-notes without cluttering the main text.
 
   [^second]: Another footnote example referencing additional context or sources.
-
-  ```
