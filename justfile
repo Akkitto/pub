@@ -12,6 +12,8 @@ alias p   := publish
 alias pub := publish
 alias r   := deploy-raw
 alias raw := deploy-raw
+alias n   := new
+alias nu  := new
 
 # Tooling & paths
 root          := justfile_directory()
@@ -20,6 +22,7 @@ zola          := env_var_or_default("ZOLA", "zola")
 script_hooks  := root / "utils" / "git_hook_install.nu"
 script_deploy := root / "utils" / "deploy_raw.nu"
 script_cname  := root / "utils" / "deploy_cname.nu"
+script_art    := root / "utils" / "init_article.nu"
 config        := root / "config.toml"
 
 # Exported env
@@ -71,3 +74,8 @@ serve:
 deploy-raw:
   @just _check-bin {{nu}}
   @"{{nu}}" "{{script_deploy}}"
+
+# Prepare new Article
+new:
+  @just _check-bin {{nu}}
+  @"{{nu}}" "{{script_art}}"

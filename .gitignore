@@ -75,3 +75,6 @@ $RECYCLE.BIN/
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# Temporary Artefacts
+content/template.md

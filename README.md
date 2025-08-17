@@ -4,6 +4,12 @@ Published works, based on transporting general information mostly through the me
 
 ## Usage
 
+### Write article
+```
+just new
+hx content/template.md
+```
+
 ### Publish
 ```
 just
@@ -19,9 +25,11 @@ just serve
 Live-reloads site changes.
 
 ## Tech Stack
+* [Helix](https://helix-editor.com/)
 * [Zola](https://www.getzola.org/)
 * [Nu](https://www.nushell.sh/)
 * [Just](https://just.systems/)
+* [Git](https://git-scm.com/)
 * [YAML](https://yaml.org/)
 * [TOML](https://toml.io/en/)
 * [HTML](https://html.spec.whatwg.org/)
