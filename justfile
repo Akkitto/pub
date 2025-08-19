@@ -30,7 +30,8 @@ config        := root / "config.toml"
 export ZOLA_ENV := env_var_or_default("ZOLA_ENV", "production")
 
 # Orchestrator: hooks first, then Zola
-init: git-hooks zola-setup github-cname github-jekyll
+# Order of tasks is relevant
+init: install-git-hooks build install-github-cname install-github-jekyll
   @echo "✓ Hooks installed, Zola initialised, Articles published (ZOLA_ENV=${ZOLA_ENV})."
 
 # Publish complete with bells & whistles
@@ -47,22 +48,22 @@ _check-bin cmd:
   @command -v "{{cmd}}" >/dev/null 2>&1 || { echo "Error: '{{cmd}}' not in PATH." >&2; exit 127; }
 
 # Re-create CNAME for Github Pages
-github-cname:
+install-github-cname:
   @just _check-bin {{nu}}
   @"{{nu}}" "{{script_cname}}"
 
 # Re-bypass Jekyll for Github Pages
-github-jekyll:
+install-github-jekyll:
   @just _check-bin {{nu}}
   @"{{nu}}" "{{script_jekyll}}"
 
 # Install Git hooks via Nushell script
-git-hooks:
+install-git-hooks:
   @just _check-bin {{nu}}
   @"{{nu}}" "{{script_hooks}}"
 
 # Initialize, then validate & build Zola site
-zola-setup:
+build:
   @just _check-bin {{zola}}
   @if [ ! -f "{{config}}" ]; then \
       echo "No config.toml → running '{{zola}} init .'"; \
@@ -74,6 +75,8 @@ zola-setup:
 # Dev server (alias: `just s`)
 serve:
   @just _check-bin {{zola}}
+  @just init
+  @just deploy-raw
   @"{{zola}}" serve
 
 # Finalise
