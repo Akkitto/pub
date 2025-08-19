@@ -1,0 +1,5 @@
+[urls]
+yaml = [
+    "https://pub.brani.dev/raw/demo.toml",
+    "https://pub.brani.dev/raw/demo.yaml",
+]

@@ -2,6 +2,7 @@ kind: Article
 version: 1
 metadata:
   title: Demo
+  description: This is a demonstration of Markdown capabilities in Zola.
   date: 20250813T000000+00:00
   taxonomies:
     categories:
@@ -9,6 +10,10 @@ metadata:
     tags:
     - demo
 content: |
+  This is a demonstration of Markdown capabilities in Zola.
+
+  <!-- more -->
+
   <!--
   Comprehensive Markdown Demo (CommonMark + GFM + GitHub extras)
   Shows: headings, paragraphs, emphasis, code (inline & fenced), syntax highlighting,

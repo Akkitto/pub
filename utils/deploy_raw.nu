@@ -45,7 +45,7 @@ module textman {
     let doc = (open $yaml_path)
 
     if not ($doc | get content | describe | str contains "string") {
-      error make {msg: ".content is missing or not a string"}  # docs: error make https://www.nushell.sh/book/creating_errors.html
+      error make --unspanned { msg: ".content is missing or not a string" }  # docs: error make https://www.nushell.sh/book/creating_errors.html
     }
 
     # Split lines and capture trailing spaces/tabs per line.
@@ -54,7 +54,7 @@ module textman {
     # docs: encode base64 https://www.nushell.sh/commands/docs/encode_base64.html
     let tails = (
       ($doc | get content)
-      | split row "\n"
+      | lines
       | each {|l| $l | str replace --regex '^(.*?)([ \t]*)$' '$2' | encode base64 }
     )
 
@@ -64,7 +64,25 @@ module textman {
     $tails | to json | save --force $sidecar_path
   }
 
+  export def save-encoded [ path: path ]: list<string> -> string {
+    str join (char newline)
+    | lines
+    | each { |line|
+      if ($line | is-empty) or ($line =~ '^[[:blank:]]+$') {
+        ""
+      } else {
+        $line
+      }
+    }
+    | str join (char newline)
+    | encode --ignore-errors iso-8859-2 | decode
+    | tee { ||
+      save --force $path
+    }
+  }
+
   # Restores remembered trailing whitespace onto .content.
+  # Only works with YAML source.
   # Works with either:
   #   - literal block:   tag: | ...
   #   - quoted one-liner: tag: "line1\nline2"
@@ -135,7 +153,7 @@ module textman {
     }
 
     if $header_mode == "none" {
-      error make { msg: "Could not find top-level `content:` as either a pipe block or double-quoted one-liner." }
+      error make --unspanned { msg: "Could not find top-level `content:` as either a pipe block or double-quoted one-liner." }
     }
 
     let ind = (_spaces $content_indent)
@@ -173,18 +191,7 @@ module textman {
     }
 
     $lines
-    | str join (char newline)
-    | lines
-    | each { |line|
-      if ($line | is-empty) or ($line =~ '^[[:blank:]]+$') {
-        ""
-      } else {
-        $line
-      }
-    }
-    | str join (char newline)
-    | encode --ignore-errors iso-8859-2 | decode
-    | save --force $yaml_path
+    | save-encoded $yaml_path
   }
 }
 
@@ -330,7 +337,7 @@ def main [
   let abs_output  = ($output_root  | path expand)
 
   if not ($abs_content | path exists) {
-    error make { msg: $"Content root not found: ($abs_content)" }
+    error make --unspanned { msg: $"Content root not found: ($abs_content)" }
   }
 
   # Make sure output root exists (mkdir makes parents by default).
@@ -345,58 +352,79 @@ def main [
 
   # Process each file: compute relative path, change extension to .txt,
   # optionally strip front matter, and write to output tree.
-  let written = (
-    $files | each { |f|
-      let rel      = ($f | path relative-to $abs_content)
+  let struct_files = (
+    $files | each { |file|
+      let rel      = ($file | path relative-to $abs_content)
       let parsed   = ($rel | path parse)
-      let out_rel  = ({ parent: $parsed.parent, stem: $parsed.stem, extension: "yaml" } | path join)
-      let out_abs  = ($abs_output | path join $out_rel)
-
-      mkdir ($out_abs | path dirname)
-
-      # Read as bytes, decode to UTF-8 string (ensures text ops work), optionally strip FM.
-      let raw = (open --raw $f | decode utf-8)
+            # Read as bytes, decode to UTF-8 string.
+      let raw = (open --raw $file | decode utf-8)
       let extract = ($raw | extract-front-matter)
-      let content = $extract.content
-      let article_tpl = if ($template_article_file | is-not-empty) {
-        open $template_article_file
-      } else {
-        $template_article | from nuon
-      }
-      let article = (
-        $article_tpl
-        | update metadata $extract.meta
-        | update metadata { |record|
-          $record.metadata | update date { |metadata| $metadata.date | format date '%Y%m%dT%H%M%S%Z' }
+      [
+        yaml
+        toml
+      ] | each { |ext|
+        let struct_file_name  = ($parsed | update extension $ext | path join)
+        let struct_file_path  = ($abs_output | path join $struct_file_name)
+
+        mkdir ($struct_file_path | path dirname)
+
+        let content = $extract.content
+        let article_tpl = if ($template_article_file | is-not-empty) {
+          open $template_article_file
+        } else {
+          $template_article | from nuon
         }
-        | update content $content
-      )
+        let article = (
+          $article_tpl
+          | update metadata $extract.meta
+          | update metadata { |record|
+            $record.metadata | update date { |metadata| $metadata.date | format date '%Y%m%dT%H%M%S%Z' }
+          }
+          | update content $content
+        )
 
-      $article
-      | save --force $out_abs
+        $article
+        | save --force $struct_file_path
 
-      textman remember-tag-ws $out_abs $output_whitespace
-      textman restore-tag-ws $out_abs $output_whitespace
+        match $ext {
+          yaml => {
+            textman remember-tag-ws $struct_file_path $output_whitespace
+            textman restore-tag-ws $struct_file_path $output_whitespace
+          }
+          _ => {
+            open --raw $struct_file_path | lines | textman save-encoded $struct_file_path
+          }
+        }
 
-      # Clean temporary support file
-      rm --force $output_whitespace
+        # Clean temporary support file
+        rm --force $output_whitespace
 
-      # Return the path relative to output root for index.html listing.
-      $out_rel
-    }
+        # Return the path relative to output root for index.html listing.
+        $struct_file_name
+      }
+    } | flatten
   )
 
-  # Build a minimal index.html with relative links and download attribute.
-  let index_html = (
-    [
-      '<!doctype html><meta charset="utf-8"><title>Downloadable Articles</title>',
-      '<h1>Downloadable Articles</h1><ul>'
-    ]
-    ++ ($written | sort | each { |rel| $'  <li><a href="./("raw" | path join $rel)" download>($rel)</a></li>' })
-    ++ ['</ul>']
-  ) | str join (char newline)
+  # Deploy indexes for structured content artefacts.
+  let index_html_yaml = (
+    $struct_files
+    | sort
+    | each { |rel|
+      $'((open config.toml | get base_url) | path join ("raw" | path join $rel))'
+    }
+  )
+  let index_html = {
+    urls: {
+      yaml: $index_html_yaml
+    }
+  }
 
-  $index_html | save --force ($abs_output | path join "index.html")
+  [
+    yaml
+    toml
+  ] | each { |ext|
+    $index_html | save --force ($abs_output | path join $"index.($ext)")
+  }
 
-  print $"Exported ($written | length) files into directory '($abs_output)'."
+  print $"Exported ($struct_files | length) files into directory '($abs_output)'."
 }

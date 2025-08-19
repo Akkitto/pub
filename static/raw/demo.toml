@@ -1,0 +1,311 @@
+kind = "Article"
+version = 1
+content = '''
+This is a demonstration of Markdown capabilities in Zola.
+
+<!-- more -->
+
+<!--
+Comprehensive Markdown Demo (CommonMark + GFM + GitHub extras)
+Shows: headings, paragraphs, emphasis, code (inline & fenced), syntax highlighting,
+blockquotes, lists (ordered/unordered/nested), task lists, tables, links (inline & reference),
+images, autolinks, emojis, footnotes, strikethrough, collapsible sections (<details>),
+HTML inline, hard/soft breaks, math (GitHub), Mermaid diagrams, and callouts.
+-->
+
+# &#128218; Markdown Feature Showcase
+
+> **Goal:** A single file demonstrating the *most commonly supported* Markdown features on GitHub (GFM).  
+> Use this file to test renderers or as a quick reference.[^scope]
+
+---
+
+## Table of Contents
+
+<!-- - [&#128218; Markdown Feature Showcase](#-markdown-feature-showcase)
+  - [Table of Contents](#table-of-contents)
+  - [Headings](#headings)
+- [H1](#h1)
+  - [H2](#h2)
+    - [H3](#h3)
+      - [H4](#h4)
+        - [H5](#h5)
+          - [H6](#h6)
+  - [Paragraphs \& Line Breaks](#paragraphs--line-breaks)
+  - [Emphasis](#emphasis)
+  - [Inline Code \& Escapes](#inline-code--escapes)
+  - [Blockquotes](#blockquotes)
+  - [Lists](#lists)
+    - [Unordered](#unordered)
+    - [Ordered](#ordered)
+  - [Task Lists (GFM)](#task-lists-gfm)
+  - [Links](#links)
+  - [Images](#images)
+  - [Tables (GFM)](#tables-gfm)
+  - [Code Blocks](#code-blocks)
+      - [Python](#python)
+      - [Kotlin](#kotlin)
+      - [Bash](#bash)
+  - [Footnotes (GFM)](#footnotes-gfm)
+  - [Collapsible Sections](#collapsible-sections)
+  - [Strikethrough \& Emoji (GFM)](#strikethrough--emoji-gfm)
+  - [Math (GitHub)](#math-github)
+  - [Mermaid Diagrams (GitHub)](#mermaid-diagrams-github)
+  - [Inline HTML (Portable Snippets)](#inline-html-portable-snippets)
+  - [Reference-Style Definitions](#reference-style-definitions) -->
+
+---
+
+## Headings
+
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+---
+
+## Paragraphs & Line Breaks
+
+A normal paragraph flows as expected.  
+A **hard line break** uses two spaces at the end of the line.  
+This line starts a new line without a blank paragraph.
+
+This is a new paragraph (separated by a blank line).
+
+---
+
+## Emphasis
+
+- *Italic* using single asterisks or underscores.
+- **Bold** using double asterisks or underscores.
+- ***Bold+Italic*** with triple markers.
+- `Inline code` can mix with **bold** and *italic*.
+
+---
+
+## Inline Code & Escapes
+
+Use backticks for inline code like `` `ls -la` `` or to show backticks themselves:
+`` `code with a backtick \` inside` ``
+
+Escaping characters: \*not bold\*, \_not italic\_, \~not tilde\~.
+
+---
+
+## Blockquotes
+
+> A single-level quote.
+>
+> - Can include lists
+> - **And** emphasis
+>
+> > Nested quote level 2  
+> > Even **bold** here.
+
+---
+
+## Lists
+
+### Unordered
+- Item A
+  - Nested A.1
+    - Nested A.1.a
+- Item B
+
+### Ordered
+1. Step one
+2. Step two
+   1. Sub-step two.a
+   2. Sub-step two.b
+3. Step three
+
+---
+
+## Task Lists (GFM)
+
+- [x] Implement feature
+- [ ] Write tests
+  - [x] Unit tests
+  - [ ] Integration tests
+- [ ] Ship &#128640;
+
+---
+
+## Links
+
+Inline link: [GitHub](https://github.com "GitHub Home").  
+Reference link: [CommonMark][cm].  
+Autolink: https://commonmark.org
+
+You can also link to a section like [Task Lists](#task-lists-gfm).
+
+---
+
+## Images
+
+Inline image:
+
+![Octocat waving](https://github.githubassets.com/images/modules/logos_page/Octocat.png "The Octocat")
+
+Reference image:
+
+![Markdown Logo][mdlogo]
+
+---
+
+## Tables (GFM)
+
+| Feature          | Supported | Notes                                  |
+|------------------|:---------:|----------------------------------------|
+| Alignment        |   &#9989;       | Use `:---` left, `:---:` center, `---:` right |
+| Task lists       |   &#9989;       | GFM only                               |
+| Footnotes        |   &#9989;       | GFM only                               |
+| HTML passthrough |   &#9888;&#65039;       | Limited; depends on renderer           |
+
+---
+
+## Code Blocks
+
+Fenced code blocks support an **info string** for syntax highlighting.
+
+#### Python
+
+```python
+# A tiny Python example with docstring and typing
+# Docs: https://docs.python.org/3/library/typing.html
+from __future__ import annotations
+from typing import Iterable, List
+
+def squares(nums: Iterable[int]) -> List[int]:
+  """
+  Return a list of squared numbers.
+  """
+  return [n * n for n in nums]
+
+if __name__ == "__main__":
+  data = [1, 2, 3, 4]
+  print("Input:", data)
+  print("Squares:", squares(data))
+```
+
+#### Kotlin
+
+```kotlin
+// Simple Kotlin example (no external libraries required)
+// Kotlin docs: https://kotlinlang.org/docs/basic-syntax.html
+fun greet(name: String): String {
+  // Returns a greeting message
+  return "Hello, $name!"
+}
+
+fun main() {
+  val names = listOf("Ada", "Alan", "Akito")
+  // Print greetings
+  names.forEach { println(greet(it)) }
+}
+```
+
+#### Bash
+
+```bash
+# Bash snippet with immutable variables (readonly)
+# (Note: This is a demonstration snippet, not a script header)
+declare -r GREETING="hello"
+declare -r TARGET="world"
+printf '%s, %s!\n' "$GREETING" "$TARGET"
+```
+
+> Tip: Use ` ``` ` fences. If you need to show triple backticks *inside* a code block, fence with four backticks:
+
+````text
+```python
+print("This is shown literally.")
+```
+````
+
+---
+
+## Footnotes (GFM)
+
+You can cite a footnote like this.[^why] You can reuse it[^why] and also have multiple footnotes.[^second]
+
+---
+
+## Collapsible Sections
+
+<details>
+  <summary>Click to expand: Release Notes (example)</summary>
+
+* Added: Footnotes support
+* Fixed: Table rendering on mobile
+* Deprecated: Legacy callouts
+
+</details>
+
+---
+
+## Strikethrough & Emoji (GFM)
+
+* ~~Deprecated feature~~ (no longer in use)
+* Emojis: \:tada: \:rocket: \:coffee:
+
+---
+
+## Math (GitHub)
+
+Inline math: \$E = mc^2\$.
+
+Block math:
+
+```math
+\int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
+```
+
+---
+
+## Mermaid Diagrams (GitHub)
+
+```mermaid
+flowchart TD
+  A[Start] --> B{Is it Markdown?}
+  B -- Yes --> C[Render nicely]
+  B -- No  --> D[Convert or skip]
+  C --> E[Done]
+  D --> E[Done]
+```
+
+---
+
+## Inline HTML (Portable Snippets)
+
+Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy. <small>Small print can be styled with HTML when allowed.</small>
+
+> **Note:** Some renderers sanitize or disallow certain HTML tags.
+
+---
+
+## Reference-Style Definitions
+
+[cm]: https://commonmark.org "CommonMark Spec"
+[mdlogo]: https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg "Markdown Logo"
+
+---
+
+[^scope]: *Scope:* This file targets **CommonMark + GFM** as rendered on GitHub. Some features (math, Mermaid, footnotes, task lists) are GitHub-specific.
+
+[^why]: Footnotes are great for adding side-notes without cluttering the main text.
+
+[^second]: Another footnote example referencing additional context or sources.
+'''
+
+[metadata]
+title = "Demo"
+description = "This is a demonstration of Markdown capabilities in Zola."
+date = "20250813T000000+00:00"
+
+[metadata.taxonomies]
+categories = ["demo"]
+tags = ["demo"]
