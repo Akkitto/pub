@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-    <title>Pub</title>
+    <title>Pub - meta</title>
     <subtitle>Daniel&#x27;s published works.</subtitle>
-    <link rel="self" type="application/atom+xml" href="https://pub.brani.dev/atom.xml"/>
+    <link rel="self" type="application/atom+xml" href="https://pub.brani.dev/categories/meta/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://pub.brani.dev/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2025-08-19T19:34:06+02:00</updated>
-    <id>https://pub.brani.dev/atom.xml</id>
+    <id>https://pub.brani.dev/categories/meta/atom.xml</id>
     <entry xml:lang="en">
         <title>Blogging</title>
         <published>2025-08-19T19:34:06+02:00</published>
@@ -25,25 +25,6 @@
         
         <summary type="html">&lt;p&gt;Explaining how I turned around to start blogging (again).
 Tried it multiple times throughout many years and here we go again...&lt;&#x2F;p&gt;</summary>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>Demo</title>
-        <published>2025-08-13T00:00:00+00:00</published>
-        <updated>2025-08-13T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://pub.brani.dev/demo/"/>
-        <id>https://pub.brani.dev/demo/</id>
-        
-        <summary type="html">&lt;p&gt;This is a demonstration of Markdown capabilities in Zola.&lt;&#x2F;p&gt;</summary>
         
     </entry>
 </feed>

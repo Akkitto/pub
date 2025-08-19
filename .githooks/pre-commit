@@ -19,7 +19,7 @@
 # Enforce front matter for new Markdown files and stamp RFC3339 `date`.
 # - If a file does NOT start with TOML (+++) or YAML (---) front matter, ABORT commit
 #   and show a helpful message. We no longer auto-add front matter.
-# - If front matter exists but has no `date`, insert one (RFC3339 from ${TZ:-Europe/Berlin}).
+# - If front matter exists but has no `date`, insert one (RFC3339 from ${TZ:-Europe/Amsterdam}).
 # - Tolerates CRLF and surrounding spaces on fence lines.
 # - Only affects files staged as newly added in Git.
 #
@@ -37,7 +37,7 @@ set -o nounset   # Treat unset variables as an error.
 set -o pipefail  # Pipeline returns the exit status of the last command in the pipe that returned a non-zero status.
 
 # Configuration
-declare -r DEFAULT_TZ="Europe/Berlin"
+declare -r DEFAULT_TZ="Europe/Amsterdam"
 # Example: 2025-08-15T18:45:12+02:00 (RFC3339, local TZ or DEFAULT_TZ)
 declare -r STAMP="$(TZ="${TZ:-$DEFAULT_TZ}" date -Iseconds)"
 

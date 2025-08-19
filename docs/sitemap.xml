@@ -4,10 +4,17 @@
         <loc>https://pub.brani.dev/</loc>
     </url>
     <url>
+        <loc>https://pub.brani.dev/blogging/</loc>
+        <lastmod>2025-08-19T19:34:06+02:00</lastmod>
+    </url>
+    <url>
         <loc>https://pub.brani.dev/categories/</loc>
     </url>
     <url>
         <loc>https://pub.brani.dev/categories/demo/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/categories/meta/</loc>
     </url>
     <url>
         <loc>https://pub.brani.dev/demo/</loc>
@@ -18,6 +25,9 @@
     </url>
     <url>
         <loc>https://pub.brani.dev/tags/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/blog/</loc>
     </url>
     <url>
         <loc>https://pub.brani.dev/tags/demo/</loc>
