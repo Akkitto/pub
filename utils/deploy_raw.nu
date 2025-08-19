@@ -327,9 +327,8 @@ def strip-front-matter [s: string] {
 # Flags mirror your Kotlin system properties and defaults.
 def main [
   --content-root:            path = "content"          # root to scan for .md
-  --output-root:             path = "static/raw"       # where .yaml + index.html go
+  --output-root:             path = "static/raw"       # where .yaml + .toml + index.html go
   --output-whitespace:       path = "whitespace.json"  # path to .whitespace metadata holding temporary file
-  --strip-front-matter            = true               # strip Zola front matter
   --template-article-file: string = ''                 # path to template filled with content and metdata from markdown post
   --template-article:      string = '{kind: Article, version: 1, metadata: {}, content: ""}' # template filled with content and metdata from markdown post as plain NUON string
 ] {
@@ -340,7 +339,9 @@ def main [
     error make --unspanned { msg: $"Content root not found: ($abs_content)" }
   }
 
-  # Make sure output root exists (mkdir makes parents by default).
+  # Clean output root, in case source files were moved and would result in duplicates.
+  rm --recursive --force $abs_output
+  # Make sure output root exists.
   mkdir $abs_output
 
   # Find all Markdown files under content-root, skipping Zola _index.md files.
@@ -351,7 +352,6 @@ def main [
   )
 
   # Process each file: compute relative path, change extension to .txt,
-  # optionally strip front matter, and write to output tree.
   let struct_files = (
     $files | each { |file|
       let rel      = ($file | path relative-to $abs_content)
@@ -419,8 +419,6 @@ def main [
     }
   }
 
-  print $"1: ($index_html | get urls | get yaml)"
-
   [
     yaml
     toml
@@ -431,5 +429,7 @@ def main [
   # Make plain Markdown Article available
   cp --verbose --force --update ...$files $output_root
 
-  print $"Exported ($struct_files | length) structured & plain Markdown ($files | length) files into directory '($abs_output)'."
+  # Clean 
+
+  print $"Exported ($struct_files | length) structured & plain ($files | length) Markdown files into directory '($abs_output)'."
 }
