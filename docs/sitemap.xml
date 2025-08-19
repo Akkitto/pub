@@ -17,11 +17,18 @@
         <loc>https://pub.brani.dev/categories/meta/</loc>
     </url>
     <url>
+        <loc>https://pub.brani.dev/categories/philosophy/</loc>
+    </url>
+    <url>
         <loc>https://pub.brani.dev/demo/</loc>
         <lastmod>2025-08-13T00:00:00Z</lastmod>
     </url>
     <url>
         <loc>https://pub.brani.dev/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/sophistication/</loc>
+        <lastmod>2025-08-19T20:39:23+02:00</lastmod>
     </url>
     <url>
         <loc>https://pub.brani.dev/tags/</loc>
@@ -31,5 +38,14 @@
     </url>
     <url>
         <loc>https://pub.brani.dev/tags/demo/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/programming-functional/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/software-architecture/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/software-design/</loc>
     </url>
 </urlset>
