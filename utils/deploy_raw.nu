@@ -419,6 +419,8 @@ def main [
     }
   }
 
+  print $"1: ($index_html | get urls | get yaml)"
+
   [
     yaml
     toml
@@ -426,5 +428,8 @@ def main [
     $index_html | save --force ($abs_output | path join $"index.($ext)")
   }
 
-  print $"Exported ($struct_files | length) files into directory '($abs_output)'."
+  # Make plain Markdown Article available
+  cp --verbose --force --update ...$files $output_root
+
+  print $"Exported ($struct_files | length) structured & plain Markdown ($files | length) files into directory '($abs_output)'."
 }
