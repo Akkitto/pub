@@ -31,7 +31,7 @@ export ZOLA_ENV := env_var_or_default("ZOLA_ENV", "production")
 
 # Orchestrator: hooks first, then Zola
 # Order of tasks is relevant
-init: install-git-hooks build install-github-cname install-github-jekyll
+init: install-git-hooks zola-build install-github-cname install-github-jekyll
   @echo "✓ Hooks installed, Zola initialised, Articles published (ZOLA_ENV=${ZOLA_ENV})."
 
 # Publish complete with bells & whistles
@@ -62,20 +62,27 @@ install-git-hooks:
   @just _check-bin {{nu}}
   @"{{nu}}" "{{script_hooks}}"
 
+run-git-hooks:
+  @git hook run pre-commit
+
+# Check site integrity
+zola-check:
+  @"{{zola}}" check --drafts
+
 # Initialize, then validate & build Zola site
-build:
+zola-build:
   @just _check-bin {{zola}}
   @if [ ! -f "{{config}}" ]; then \
       echo "No config.toml → running '{{zola}} init .'"; \
       "{{zola}}" init .; \
     fi
-  @"{{zola}}" check
   @"{{zola}}" build
 
 # Dev server (alias: `just s`)
 serve:
   @just _check-bin {{zola}}
   @just init
+  @just run-git-hooks
   @just deploy-raw
   @"{{zola}}" serve
 
