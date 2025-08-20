@@ -29,6 +29,11 @@
 # - Path ops: relative-to, parse, join, dirname, exists:
 #   https://www.nushell.sh/commands/docs/path.html
 
+const struct_data_formats = [
+  yaml
+  toml
+]
+
 # Usage:
 #   use textman
 #   textmanremember-tag-ws demo.yaml ws.json
@@ -359,10 +364,7 @@ def main [
             # Read as bytes, decode to UTF-8 string.
       let raw = (open --raw $file | decode utf-8)
       let extract = ($raw | extract-front-matter)
-      [
-        yaml
-        toml
-      ] | each { |ext|
+      $struct_data_formats | each { |ext|
         let struct_file_name  = ($parsed | update extension $ext | path join)
         let struct_file_path  = ($abs_output | path join $struct_file_name)
 
@@ -419,17 +421,12 @@ def main [
     }
   }
 
-  [
-    yaml
-    toml
-  ] | each { |ext|
+  $struct_data_formats | each { |ext|
     $index_html | save --force ($abs_output | path join $"index.($ext)")
   }
 
   # Make plain Markdown Article available
   cp --verbose --force --update ...$files $output_root
-
-  # Clean 
 
   print $"Exported ($struct_files | length) structured & plain ($files | length) Markdown files into directory '($abs_output)'."
 }

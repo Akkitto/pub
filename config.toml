@@ -88,7 +88,8 @@ theme = "toggle" # options: {light, dark, auto, toggle}
 favicon = true
 
 # Giscus comment support
-comments = false
-# giscus_repo = ""
-# giscus_repo_id = ""
-# giscus_data_category_id = ""
+comments = true
+giscus_repo = "Akkitto/pub-giscus"
+giscus_repo_id = "R_kgDOPhUI4g"
+giscus_data_category = "Pub"
+giscus_data_category_id = "DIC_kwDOPhUI4s4CuZLv"
