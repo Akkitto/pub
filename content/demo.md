@@ -2,6 +2,8 @@
 title: Demo
 description: "This is a demonstration of Markdown capabilities in Zola."
 date: "2025-08-13 00:00:00 +00:00"
+extra:
+  toc: true
 taxonomies:
   categories:
     - demo
@@ -28,9 +30,9 @@ HTML inline, hard/soft breaks, math (GitHub), Mermaid diagrams, and callouts.
 
 ---
 
-## Table of Contents
+<!-- ## Table of Contents
 
-<!-- - [📚 Markdown Feature Showcase](#-markdown-feature-showcase)
+- [📚 Markdown Feature Showcase](#-markdown-feature-showcase)
   - [Table of Contents](#table-of-contents)
   - [Headings](#headings)
 - [H1](#h1)

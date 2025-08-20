@@ -4,6 +4,8 @@ metadata:
   title: Blogging
   description: Explaining how I turned around to start blogging (again).
   date: 20250819T193406+02:00
+  extra:
+    toc: false
   taxonomies:
     categories:
     - meta

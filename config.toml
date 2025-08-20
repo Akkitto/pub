@@ -14,9 +14,9 @@ build_search_index = true
 theme = "radion"
 
 taxonomies = [
-    # You can enable/disable RSS
-    {name = "categories", feed = true},
-    {name = "tags", feed = true},
+  # You can enable/disable RSS
+  {name = "categories", feed = true},
+  {name = "tags", feed = true},
 ]
 
 generate_feeds = true
@@ -65,12 +65,23 @@ index_format = "elasticlunr_json"
 author = "Daniel"
 radion_title = "Home"
 
+# Links left of search bar
 radion_menu = [
   {url = "$BASE_URL", name = "Home"},
   {url = "$BASE_URL/categories", name = "Categories"},
   {url = "$BASE_URL/tags", name = "Tags"},
   {url = "https://brani.dev/", name = "Bio"},
 ]
+
+# Extra button right of search bar
+github = "https://github.com/Akkitto"
+
+# Giscus comment support
+comments = true
+giscus_repo = "Akkitto/pub-giscus"
+giscus_repo_id = "R_kgDOPhUI4g"
+giscus_data_category = "Pub"
+giscus_data_category_id = "DIC_kwDOPhUI4s4CuZLv"
 
 # Nicer codeblocks with copy to clipboard
 codeblock = true
@@ -86,10 +97,3 @@ theme = "toggle" # options: {light, dark, auto, toggle}
 
 # Whether to display favicon
 favicon = true
-
-# Giscus comment support
-comments = true
-giscus_repo = "Akkitto/pub-giscus"
-giscus_repo_id = "R_kgDOPhUI4g"
-giscus_data_category = "Pub"
-giscus_data_category_id = "DIC_kwDOPhUI4s4CuZLv"

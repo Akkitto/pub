@@ -23,6 +23,9 @@ title = "Ultimate Sophistication is Simplicity"
 description = "Simplicity is Ultimate Sophistication."
 date = "20250819T203923+02:00"
 
+[metadata.extra]
+toc = false
+
 [metadata.taxonomies]
 categories = ["philosophy"]
 tags = [

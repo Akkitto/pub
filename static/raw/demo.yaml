@@ -4,6 +4,8 @@ metadata:
   title: Demo
   description: This is a demonstration of Markdown capabilities in Zola.
   date: 20250813T000000+00:00
+  extra:
+    toc: true
   taxonomies:
     categories:
     - demo
@@ -29,9 +31,9 @@ content: |
 
   ---
 
-  ## Table of Contents
+  <!-- ## Table of Contents
 
-  <!-- - [&#128218; Markdown Feature Showcase](#-markdown-feature-showcase)
+  - [&#128218; Markdown Feature Showcase](#-markdown-feature-showcase)
     - [Table of Contents](#table-of-contents)
     - [Headings](#headings)
   - [H1](#h1)

@@ -2,6 +2,8 @@
 title: Ultimate Sophistication is Simplicity
 description: "Simplicity is Ultimate Sophistication."
 date: 2025-08-19T20:39:23+02:00
+extra:
+  toc: false
 taxonomies:
   categories:
     - philosophy

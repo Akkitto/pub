@@ -20,9 +20,9 @@ HTML inline, hard/soft breaks, math (GitHub), Mermaid diagrams, and callouts.
 
 ---
 
-## Table of Contents
+<!-- ## Table of Contents
 
-<!-- - [&#128218; Markdown Feature Showcase](#-markdown-feature-showcase)
+- [&#128218; Markdown Feature Showcase](#-markdown-feature-showcase)
   - [Table of Contents](#table-of-contents)
   - [Headings](#headings)
 - [H1](#h1)
@@ -305,6 +305,9 @@ Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy. <small>Small print can be styled w
 title = "Demo"
 description = "This is a demonstration of Markdown capabilities in Zola."
 date = "20250813T000000+00:00"
+
+[metadata.extra]
+toc = true
 
 [metadata.taxonomies]
 categories = ["demo"]
