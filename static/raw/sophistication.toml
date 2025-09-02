@@ -29,7 +29,8 @@ toc = false
 [metadata.taxonomies]
 categories = ["philosophy"]
 tags = [
-    "software/design",
-    "software/architecture",
-    "programming/functional",
+    "dev",
+    "dev/software/design",
+    "dev/software/architecture",
+    "dev/programming/functional",
 ]

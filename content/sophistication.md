@@ -8,9 +8,10 @@ taxonomies:
   categories:
     - philosophy
   tags:
-    - software/design
-    - software/architecture
-    - programming/functional
+    - dev
+    - dev/software/design
+    - dev/software/architecture
+    - dev/programming/functional
 ---
 
 Simplicity is Ultimate Sophistication. [Credit](https://quoteinvestigator.com/2015/04/02/simple/)

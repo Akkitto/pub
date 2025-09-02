@@ -1,0 +1,271 @@
+---
+draft: false
+title: "KYAML - Yet Another Yet Another Markup Language"
+description: "Thoughts about the incorporation of KYAML into Kubernetes."
+date: 2025-09-02T21:42:52+02:00
+extra:
+  toc: false
+taxonomies:
+  categories:
+    - devops
+  tags:
+    - devops
+    - devops/language/kyaml
+    - devops/language/yaml
+    - devops/language/strictyaml
+    - devops/language/json
+    - devops/language/hjson
+    - devops/language/jsonnet
+    - devops/language/dhall
+    - devops/configuration
+    - devops/kubernetes
+---
+
+Thoughts about the incorporation of KYAML into Kubernetes. Making sense of its purpose and comparing it to other YAML alternatives.
+
+<!-- more -->
+
+## First Sight
+
+As I found out through a summary of [this article by TheNewStack](https://web.archive.org/web/20250812182552/https://thenewstack.io/kubernetes-is-getting-a-better-yaml/), that a new language is directly supported in Kubernetes, especially without the hassle of transpiling and dealing with additional packages beyond the standard ones, I went into this topic with a positive, forward-looking mind.
+
+Unfortunately, I had find out, that what [KYAML](https://pkg.go.dev/sigs.k8s.io/kustomize/kyaml) is all about, is basically just making use of its JSON compatibility.
+The entire point of YAML was, that it did not need any boilerplate like braces, brackets or even commas. Now, if you add that back, especially the need for commas, then what is the point now?
+
+It would've slightly made sense, if we only had one or two languages, like YAML and JSON. Then KYAML would have made a fair point. However, we already have a couple of notable and feature-technically superior alternatives, like, for example, [Jsonnet](https://jsonnet.org/) & [Human JSON (HJSON)](https://hjson.github.io/). Might as well used one of those.
+
+## Understanding the Why
+
+Don't get me wrong, I definitely see the point, they are making. The biggest advantage of KYAML is, that it is actually technically just plain YAML, so it should work 100% fine with existing setups, requires no transpiler, nothing. [*It just works*](https://youtu.be/nVqcxarP9J4?feature=shared&t=5).
+
+My reason for not being happy about this change, that you are still asking people to get into something "new" and perhaps get used to "new" setups, where, for example, only KYAML is in use, boring another hole of best practice into the Kubernetes eco-system. That means, that you are still asking people to get into a "new" language, as in the syntax looks different enough, that you need to get used to it, and yet you do not offer any of the *truly* advanced features, like the ones , for example, [Jsonnet](https://jsonnet.org/) offers.
+
+If you are going to introduce a new system, which is specifically justified with the thought of making Kubernetes configuration better, easier and less of a headache, then you should've gone all-in and not introduce some in-between half-baked solution to a problem, that has been solved in very many various ways.
+
+## My Experience with Object Notation Representations through JSON & YAML
+
+The utterly biggest point for me about YAML is it not requiring many special characters, at all. You need dashes, colons and perhaps double or single quotes and that's basically it. Everything else, is plain symbolless text - except values' content.
+
+I had got used to it quickly, as it is very easy to read and comprehend, once you understand the [basic object notation](https://www.json.org/json-en.html) behind it.
+It was developed as the most human readable [object notation](https://www.json.org/json-en.html) representation, which still remains machine readable, as opposed to [JSON](https://www.json.org/json-en.html), which was made to be primarily machine readable, but still kind of human readable.
+
+The thing with [JSON](https://www.json.org/json-en.html) is, that it was kind of still readable, but nobody thought about people actually having to type these things. It is not easy to type out a [JSON](https://www.json.org/json-en.html) document manually easily, without constantly forgetting some quotes and commas here and there. Still, the utterly worst problem is multi-line string incorporation, actually. There is no way to make multi-line strings human readable in classic [JSON](https://www.json.org/json-en.html), as all the line breaks are literalised and it all becomes one line of text, assuming the output is pretty-printed, at all.
+
+### Examples
+
+Now, let's take the following object, as an example.
+
+```json
+{
+  "apiVersion": "v1",
+  "kind": "Service",
+  "metadata": {
+    "creationTimestamp": "2025-05-09T21:14:40Z",
+    "labels": {
+      "app": "hostnames"
+    },
+    "name": "hostnames",
+    "namespace": "default",
+    "resourceVersion": "37697",
+    "uid": "7aad616c-1686-4231-b32e-5ec68a738bba"
+  },
+  "spec": {
+    "clusterIP": "10.0.162.160",
+    "clusterIPs": [
+      "10.0.162.160"
+    ],
+    "internalTrafficPolicy": "Cluster",
+    "ipFamilies": [
+      "IPv4"
+    ],
+    "ipFamilyPolicy": "SingleStack",
+    "ports": [
+      {
+        "port": 80,
+        "protocol": "TCP",
+        "targetPort": 9376
+      }
+    ],
+    "selector": {
+      "app": "hostnames"
+    },
+    "sessionAffinity": "None",
+    "type": "ClusterIP"
+  },
+  "status": {
+    "loadBalancer": {}
+  }
+}
+```
+
+All strings *must* be quoted. More importantly, even the keys have to be quoted.  
+Not to mention, that you cannot comma at the end of an array of items & one of the worst part about this whole thing is, that it does not naturally support comments. So, it is really not made for manually writing it.
+
+Now, look at this YAML representation of the same object.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2025-05-09T21:14:40Z
+  labels:
+    app: hostnames
+  name: hostnames
+  namespace: default
+  resourceVersion: '37697'
+  uid: 7aad616c-1686-4231-b32e-5ec68a738bba
+spec:
+  clusterIP: 10.0.162.160
+  clusterIPs:
+  - 10.0.162.160
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9376
+  selector:
+    app: hostnames
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+```
+
+Fair enough, the empty object assigned to `loadBalancer` still has to be denoted with braces. Although, usually in actual real life scenarios, you could just not assign such an object at all and just not take care of the key, when manually writing a YAML, especially in the context of Kubernetes and Helm's `values.yaml`.
+
+That said, types are implicit, however, you can still enforce another type, like e.g. seen in the value of `resourceVersion`.  
+You can insert comments between lines & at the end of lines.
+
+{{
+note(
+  header="Edge Case"
+  body="
+Enforcing a different type may sometimes become troublesome, when the object gets handed over through so many serialisers and deserialisers, that it can actually lose type information, like it may be the case, when working with [Rancher Helm Apps](https://web.archive.org/web/20250824173434/https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/helm-charts-in-rancher).
+"
+)
+}}
+
+Even if you never had worked with either language before, I think, the difference is immediately evident.  
+The writing is definitely also tons better. I write YAML fluently and barely ever make syntax mistakes, due to its simplicity.  
+Even larger `values.yaml` are fine, as you really need to go deep with nested objects to make indentation a pain. However, most object structures are usually pretty flat anyway, so where do the supposed "headaches" with whitespace come from? I don't have any about it, in real life use cases.
+
+The real headaches arise, when braces mix up in nested objects and you have to constantly make sure, that they match up fine.
+
+{{
+note(
+  header="YAML Documents"
+  body="
+One of the most underrated features of YAML is the possibility to stack [YAML documents](https://www.yaml.info/learn/document.html) inside a single file! [YAML documents](https://www.yaml.info/learn/document.html) are designated by the `---` on top of each document. So, for example, you can concatenate several YAML files, joined by `---\n` into a single file. This feature is really useful, when simplifying and minimalising deployment scenarios!
+"
+)
+}}
+
+## Comparing to KYAML
+
+Now, looking at this KYAML...
+
+```yaml
+{
+  apiVersion: "v1",
+  kind: "Service",
+  metadata: {
+    creationTimestamp: "2025-05-09T21:14:40Z",
+    labels: {
+      app: "hostnames",
+    },
+    name: "hostnames",
+    namespace: "default",
+    resourceVersion: "37697",
+    uid: "7aad616c-1686-4231-b32e-5ec68a738bba",
+  },
+  spec: {
+    clusterIP: "10.0.162.160",
+    clusterIPs: [
+      "10.0.162.160",
+    ],
+    internalTrafficPolicy: "Cluster",
+    ipFamilies: [
+      "IPv4",
+    ],
+    ipFamilyPolicy: "SingleStack",
+    ports: [{
+      port: 80,
+      protocol: "TCP",
+      targetPort: 9376,
+    }],
+    selector: {
+      app: "hostnames",
+    },
+    sessionAffinity: "None",
+    type: "ClusterIP",
+  },
+  status: {
+    loadBalancer: {},
+  },
+}
+```
+
+It still makes most the same "mistakes" for human readability and mostly writability, as JSON. Keys don't have to be quoted and commas can be appended at the end of item arrays, but you still need to match and keep track of all the braces and brackes, as well as consistently apply quotes to every string possible.
+
+Now, let us stay on track here! We are strictly talking about the scenario of a DevOps Engineer writing such a document *by hand*.  
+We are not talking about purely machine processed data, which is then displayed to the user occasionally.
+
+This is an important point about the topic regarding the introduction of KYAML to Kubernetes. The whole point of introducing it, is making it easier to manually write YAML documents, *by hand*, eliminating the supposed "headache" caused by simple whitespace.
+
+## Alternatives to YAML
+
+### StrictYAML
+
+Yes! There is already a ready-made solution in place, which solves some common issues with YAML, in general. It is not specific to Kubernetes environments.  
+[StrictYAML](https://hitchdev.com/strictyaml/) is basically what should've been introduced, if you want all the advantages of KYAML, like still using plain YAML for familiarity and lack of need for transpilers, eliminating some "headaches" and making definitions in a document more unambiguous.
+
+Implementing this would've been a no-brainer, as it has all the advantages of KYAML and instead of creating *Yet Another* Yet Another Markup Language, you could use one of the existing standardised alternatives.
+
+### HJSON
+
+This point becomes even more important, when talking about alternatives to YAML.
+
+For example, to reach a simlar verdict of usability, as with KYAML, one might've used [Human JSON (HJSON)](https://hjson.github.io/), instead.  
+It takes JSON and makes it more "human".
+
+You can add comments, drop quotes on keys and even use multi-line strings!
+
+### Jsonnet
+
+If you are really into templating and saving space, you can dive into [Jsonnet](https://jsonnet.org/).  
+It offers advanced templating features, eliminating a lot of repetition and issues with very large objects and collecting many different manifests.
+
+Granted, the learning curve might be steep, if you want to take advantage of those advanced features, while perhaps coming from a place of simple object notation formats.
+
+There are already Kubernetes related projects, which depend on configurations written in [Jsonnet](https://jsonnet.org/).
+
+### Dhall
+
+Now, if you really want to knock yourself out, [Dhall](https://dhall-lang.org/) is some great configuration language, which I keep a close eye on.  
+Am considering using it as a base for custom resource definitions at my [domain-specific Ansible alternative](https://github.com/Akkitto/putnam).
+
+### Argument
+
+The point of showing this is, that if the server takes care of the output, then you can just use implement the display functionality for any format.  
+If you want to give people an alternative to YAML, then just implement the functionality of simply using a modern alternative to YAML altogether, since you are making people use a different system, anyway.
+
+It's a wasted opportunity for implementing a much better alternative, than just slightly changing the default YAML syntax to make it only valid through a subset of itself.
+
+## Conclusion
+
+Why make *another* standard?  
+Why make people ultimately, realistically, learn something new, if it's not truly something new and truly different and better?
+
+Stop making custom stuff for every possible use-case. Just stick with a couple of established standards, until they get superseded by the next global standard, which is largely independent of which eco-system it is used in.
+
+I'm very much for keeping things very up to date and very modern. If something needs to change, let's do it. But make it a universal and globally useful/applicable change. Don't make another custom solution for a custom environment, where people again have to adapt to a very specific environment's syntax demands.
+
+## Addendum
+
+KYAML might be a theoretical alternative only now, but let's face it, there will be any form of organisations, which will decide to opt for enforcing KYAML in some way or the other, when in reality it all is very subjective to some degree.  
+Despite everything said in this article, it is obvious, that the whitespace versus braces topic is somehwat subjective.
+
+Still, we don't need another flavour of a solution to a problem, we already have solved multiple times, in already established and well standardised ways.

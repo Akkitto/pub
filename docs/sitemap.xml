@@ -14,6 +14,9 @@
         <loc>https://pub.brani.dev/categories/demo/</loc>
     </url>
     <url>
+        <loc>https://pub.brani.dev/categories/devops/</loc>
+    </url>
+    <url>
         <loc>https://pub.brani.dev/categories/meta/</loc>
     </url>
     <url>
@@ -22,6 +25,10 @@
     <url>
         <loc>https://pub.brani.dev/demo/</loc>
         <lastmod>2025-08-13T00:00:00Z</lastmod>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/kyaml/</loc>
+        <lastmod>2025-09-02T21:42:52+02:00</lastmod>
     </url>
     <url>
         <loc>https://pub.brani.dev/page/1/</loc>
@@ -40,12 +47,45 @@
         <loc>https://pub.brani.dev/tags/demo/</loc>
     </url>
     <url>
-        <loc>https://pub.brani.dev/tags/programming-functional/</loc>
+        <loc>https://pub.brani.dev/tags/dev-programming-functional/</loc>
     </url>
     <url>
-        <loc>https://pub.brani.dev/tags/software-architecture/</loc>
+        <loc>https://pub.brani.dev/tags/dev-software-architecture/</loc>
     </url>
     <url>
-        <loc>https://pub.brani.dev/tags/software-design/</loc>
+        <loc>https://pub.brani.dev/tags/dev-software-design/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/dev/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-configuration/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-kubernetes/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-language-dhall/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-language-hjson/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-language-json/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-language-jsonnet/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-language-kyaml/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-language-strictyaml/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops-language-yaml/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/devops/</loc>
     </url>
 </urlset>
