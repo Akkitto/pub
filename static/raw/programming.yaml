@@ -1,0 +1,237 @@
+kind: Article
+version: 1
+metadata:
+  draft: false
+  title: Learn Programming
+  description: Learn programming the most effective way.
+  date: 20250921T024957+02:00
+  extra:
+    toc: true
+  taxonomies:
+    categories:
+    - education
+    tags:
+    - education/programming
+    - dev/programming
+content: |
+  Learn programming the most effective way.
+
+  <!-- more -->
+
+  This article will explain what mindset and approach you may take, if you truly want to learn programming in the most effective and useful way, specifically tailored to what you need for real life projects, including ones through professional IT occupations.
+
+  First off, *there is no one size fits all solution to this challenge*. Everybody learns in his own way and if you find this guide not fitting your style of learning, that's fine.  
+  The following guide is based on my years of experience teaching this capability to myself and what reportedly works for the vast majority of people trying to get into programming, not knowing how to start and then ending up approaching the situation completely the opposite way of what actually brings you forward in how to learn to program.
+
+  {{
+  note(
+    header="Who this is for"
+    body="
+  If you truly want to get into programming and don't know how to start, especially after trying for what feels like a very long time and you simply feel, like you cannot get into it for whatever reason, this is a no bullshit, to the point, guide for you, which will teach you how to simply actually dive into programming and feeling progress very quickly.
+  "
+  )
+  }}
+
+  ## Ground Rules
+
+  Throughout all instructions of this guide, follow these rules. No matter what you do in what situation, what problem you are trying to solve, follow the following ground rules, *always*.
+
+  1. Just do it. &#10004;
+  2. Don't knock it, before you try it.
+  3. Don't hesitate to push the button.
+  4. Never forget the problem you are trying to solve.
+
+  ## Stop studying, start doing!
+
+  The very first mistake most wannabe beginners do is entering their journey by reading books/articles/tutorials or watching them on how to learn a specific tool or programming language with exact step by step guidance on what to do, how to do it and in what order, etc.
+
+  The problem with that is, that you barely learn anything doing that, as you lack the context and mindset for even the easiest tasks the tutorial master portrays to you, for you to accomplish.
+  Especially programming is all about thinking and having the mindset of approaching an issue step by step, in a logical manner.
+
+  Most tutorials start showing you basic programming stuff like all kinds of loops, basic data structures, like arrays and primitive types.
+  Showing this in a contextless environment for an absolute wannabe beginner is absolutely useless and does not teach the student anything. It is meaningless to him, therefore, it is useless to him.  
+  If you truly want to learn programming, you have to understand the purpose and meaning of each possible step, in order to not only choose the right one, but also understand the whole context you are in.
+
+  The solution to the wannabe beginner's problem described above, is as follows.
+
+  What you ought to do, is follow Rule 1. Just do it. &#10004;
+
+  ### Development Environment
+
+  You don't require programming knowledge to install an editor used by programmers. For example, install [Visual Studio Code](https://code.visualstudio.com/) or [VSCodium](https://vscodium.com/). The latter is privacy focused and 100% open source, while the former offers maximum compatability and feature functionality.
+  Choose the former, if you don't know better.
+
+  Open the program and check out the buttons, play around a bit and get the "feel" for the program. If you do not understand, what most things do or what most things are there for, it does not matter at all.
+
+  Open a folder with the editor, which is empty and specifically there for you to learn programming. It is your "playground", which you will use to practice programming.
+
+  ### Programming Language
+
+  Next, decide on a programming language, which you want to use. Which one to choose as the first one is not too important, but it is recommended to choose a generic & established one, with lots of online support through articles, forum posts and experiences from others. This will significantly increase your learn speed for programming and that specific language.
+
+  If you do not have a specific language in mind, because you are not aiming for a specific job or project, yet, then I recommend [Java](https://www.java.com/en/download/help/download_options.html), [Go](https://go.dev/learn/) or even [Rust](https://www.rust-lang.org/learn).
+
+  {{
+  note(
+    header="Rust? Seriously?!"
+    body="
+  I already feel the flak coming in for having the gall to even suggest [Rust](https://www.rust-lang.org/learn) as a starting point, so I'm going to justify it a bit, to reduce the rage in some readers.
+  The reason I recommend Rust, among others, as a starting programming language, is because most people who complain about its supposed complexity and difficulty are people who already programmed for years in other languages and got too used to established & possibly obsolete patterns. Humans hate to get used to new stuff, in general.  
+  Now, when a beginner programmer tries to get into a new cosmos, he never entered before, to him, there will be no difference between [Java](https://www.java.com/en/download/help/download_options.html), [Go](https://go.dev/learn/) and [Rust](https://www.rust-lang.org/learn), as programming is new in the first place and to the student it's pretty much the same, whether he learns one or the other language, as it is all new, anyway.  
+  Seeing that from this perspective, clarifies that it really makes no difference in the beginning.
+  "
+  )
+  }}
+
+  [Java](https://www.java.com/en/download/help/download_options.html) is a good option, as it is an extremely established language, used everywhere. It is not too low level, not too high level. It is in the middle and covers tons of ground.  
+  At the same time, it offers tons of online resources, examples and help from others.
+
+  [Go](https://go.dev/learn/) is a good option for the same reasons, as [Java](https://www.java.com/en/download/help/download_options.html), even if it is perhaps a bit less established than [Java](https://www.java.com/en/download/help/download_options.html), but it offers more depth in modern state of the art tools and technologies, like the [Kubernetes](https://kubernetes.io/) eco-system and modern approaches like Microservice Architecture, etc. So, if you are into programming for the new stuff, while still having the option to rely on massive amounts of online resources for learning and getting better and better with the language, you can choose this one, safely, without hesitation.
+
+  [Rust](https://www.rust-lang.org/learn) is a good option on steroids. Despite it being "quite new" compared to the previous ones, it has a very large eco-system already & a very large, vibrant and ambitious community around it, which is very helpful and supporting.  
+  It cannot have the same amount of resources as, for example [Java](https://www.java.com/en/download/help/download_options.html) does, but this is all relative! If you count [Java](https://www.java.com/en/download/help/download_options.html) resources and examples in total, without differentiation, to the amount of resources a newer option like [Rust](https://www.rust-lang.org/learn) offers, then it seems like [Java](https://www.java.com/en/download/help/download_options.html) is a no-brainer in terms of what is easier & faster to learn based on reasource amounts.  
+  The thing is, tons of resources are already very very old and obsolete, especially the technologies used are sometimes not recommended at all, to be used.  
+  With [Rust](https://www.rust-lang.org/learn) however, pretty much all resources are very up to date and still modern in its nature. Even if small syntax or structures changed over the years, the overall eco-system is still modern and up to date. Compare this to stuff like [Apache Tomcat](https://tomcat.apache.org/), which provides mostly resources from, as of today, 20 years ago, because it is just not a technology you would want to use today.  
+  [Rust](https://www.rust-lang.org/learn) is a good choice to start with, especially if you want to get into a very modern and quickly growing & expanding eco-system, which is strong and pushing forward, constantly.
+
+  Essentially, the safest pick for strictly learning how to program is [Java](https://www.java.com/en/download/help/download_options.html), while [Rust](https://www.rust-lang.org/learn) remains the best pick for learning and at the same time already diving deep into the most modern eco-system available, as of right now, future-proofing your career.  
+  [Go](https://go.dev/learn/) is the in-between choice.
+
+  ### Practice establishes Master
+
+  There is one harsh truth, most people, in all aspects of life, have a very hard time to accept.
+
+  > There are no shortcuts over practice.
+
+  If you want to learn programming, there are no shortcuts. You cannot learn it over night.  
+  The same way, a Karate beginner cannot learn to halve bricks over night with his hands. It takes years of practice.  
+  Accept this truth, before continuing.
+
+  ### Just do it &#10004;
+
+  Now, as I said previously, tutorials, which show you step by step, what to do, how to do it, and in what order are exactly what's going wrong with widely promoted and popular self-education regarding the topic of programming.
+
+  Therefore, I'm not going to tell you, at all, what to do or how to do it, regarding the exact programming practice, projects, exercises, tasks or anything like that. I'm only explaining the mindset you need, to progress. Everything else is on you!
+
+  ### Example Project
+
+  First, find a real problem you want to solve. Start with something small.  
+  One example would be to read a configuration export from [Swiftpoint X1](https://support.swiftpoint.com/portal/en/kb/articles/swiftpoint-x1-control-panel-download), output as a file with the `spcf` extension & then get some values out of it, which you require.  
+  This could be, for example, finding the macro applied to the front edge button, in each profile.
+  Then, creating a list of the results and dumping them into a file created by your program.
+
+  Second, Rule 4: **note the problem you are trying to solve**.  
+  You have to be always aware, of what issue you are actually trying to solve.  
+  Once that is clarified, line out a potential way of solving the issue.
+
+  The most important part about solving an issue, especially when programming, is to divide the issue into smaller issues, which correspond to actual logical steps you can do in programming.
+  In the first step, I already created such a rough outline.
+
+  The ideal breaking of the bigger issue into smaller ones, would work like this, applied to the example above.
+
+  1. Each configuration export of file type `spcf` contains 3 profiles. One for desktop, one for video editing and one for your favourite game. We convert this into "thinking like a coder" by saying, that we have 3 items in a list. It is very important to not think too much ahead! At this first step we are currently on, we do not care about, how each item or the list looks like. We do not need to understand the concept of the two, aside from what we know about the words "item" and "list" as non-coders already, anyway. Part of the "thinking like a coder" is to think step by step and not overwhelm yourself with all the parts, making the project seem more difficult, than it actually is.
+  2. Each profile in the configuration, i.e. each item in the list from step 1, represents a macro profile for the [Swiftpoint](https://www.swiftpoint.co.nz/) hardware, i.e. an "object", where the object is essentially only a list of keys and values. It's basically like having a spreadsheet with 2 columns and some amount of rows. The left column is a key, like for example `date` and the right column next to the cell with the word `date` in it has something like `2025/09/21` in it. The next row has a key like `name` in assigned to the cell in the first column, while the cell right next to it, assigned to the second column, has the value `Yami` in it. This is all an object is. A list of key value pairs, where keys are usually `strings`, i.e. general text elements, while the values are in principle anything possible, including `strings`, `integers`/`floats` (i.e. numbers), `booleans` (`true` or `false`), `lists` (list of string, integer, boolean...) or, most interestingly, further objects! Basically like, having another spreadsheet as a value in the third row of the second column.
+  3. Therefore, we have a list of items, where each item is an object, which means, that we have a list of key value pairs, essentially meaning, that we have a list of lists, which can contain lists. Sounds complicated? No, *this is the opposite of complicated*. All you need to understand now, is what a list is. You know this, if you ever have written a checklist for buying groceries. Check. If you have ever calculated how much a book costs for school, you know what an `integer` and `float` is. Check. If you have ever answered `yes` or `no` to a question, you already know, what a `boolean` is. Check. As you see, you already know programming, you just need to actually activate that knowledge, which is already inside you.
+  4. Now, you want to find out all macros, each one assigned to the front edge button on the hardware. This means in "thinking like a coder", you need to `iterate` over the list of items (objects, i.e. profiles, i.e. key value pairs) and read the value of the front edge button. With each key value pair list, you can usually treat it is a `dictionary` or `map` of some sorts. So, for example, if the key you are looking for is named `front_edge_button` and you want to know the value of it, then you can usually just take each object, ask for the value of `front_edge_button` and there you have, what you wanted. It's that simple.
+  5. You have a list of objects now and you want to repeat the same action for all items in the `list` or `array`. Use a `loop`. There is `while`, `do while` and other loops, which are generally available across most programming languages. The one you need will be obvious, once you realise, that the word `each` directs you to the `loop` you will probably use the most, when practicing programming. The `for each loop` `iterates` over all items in the `list` and repeats some action. In this scenario, we are reading the value for `front_edge_button`. Put this action into a `for each loop` and it will be repeated automatically for every item in the list.
+  6. Once you have accomplished all that, your program will output a list of values, where each value corresponds to an original `front_edge_button` value. Now, `write` this list into a file.
+  7. That's it. Your program accomplished what you wanted to achieve.
+
+  Now, reading those 7 steps above, it might seem like a lot on the one hand and not well enough explained on the other hand. I can assure you, this is already way too detailed of an explanation. The whole point of what I'm trying to teach you, is to learn, how to teach yourself properly, without needing specific orders. I also specifically chose a configuration, which you are unlikely to have on your computer, because you are supposed to find your own personal issue to solve. You ought to apply the `logic` of what is told above, instead of simple, brainless, instructions.
+
+  Only, if you really start thinking and questioning what you are doing and what you try to achieve, you really start learning.  
+  For your convenience I already stated some of the most basic elements for programming, so you can look them up, when you need them.
+
+  Third, Rule 3: **Don't hesitate to push the button**.
+
+  Once you have something written in your editor, but you are unsure, whether it works, just push the button. Stop thinking, just do it. &#10004;
+
+  The compiler will tell you what's wrong. Fix the issue, research online, what the issue is caused by. Push button again, fix the next issue, etc. Rinse & repeat. Re-iterate, until it finally runs.  
+  Then, check, what steps you have accomplished and what still needs work. Work on the next steps, so you progress with what you try to achieve. Rule 4 is very important in that regard, as well.
+
+  Fourth, Rule 2: **Don't knock it, before you try it**.
+
+  At some point, especially when you will progress a lot in terms of "thinking like a coder", you will more and more have this feeling of just having written something, then seeing lots of issues, especially when looking at older code, and then thinking, whether your better idea, that is already mostly lined out in your head, would be better. You start contemplating, whether it's actually a better solution or if you are missing something...
+
+  Stop thinking, just do it. &#10004;
+
+  Make a backup of the older file, write the file anew, with your new approach. Rule 3, just push the button. The compiler will tell you, if something's not working or you will see, that the result maybe misses some information, you'd usually expect from this program.
+
+  ### Example Project Conclusion
+
+  The example project is one I have written quick & dirty, but that ought to suffice for the purpose I wanted to put up for display. Nothing in this guide is a definitive answer to the way of resolving an issue step by step exactly and with all the background knowledge possible. You are the teacher and you are teaching yourself. If you don't know something, research online. Use search engines, read forum posts, [StackOverflow](https://stackoverflow.com/) sites, [Reddit](https://www.reddit.com/), etc. There you will find tons of answers to your questions.
+
+  ### Practice Practice Practice
+
+  Treat programming languages similar to natural, spoken languages.
+
+  The more you practice, the better. Make mistakes. Ask for feedback. Be criticised. Let others tell you, what sux about your code. This will make you learn. [Forget pride](https://www.youtube.com/watch?v=c1q2PitIM9w) and learn from your previous lower quality attempts at solving a particular problem.
+
+  The thing is, there are always a thousand ways to solve a single problem. There are better, more efficient ones and worse, less efficient ones. However, it is very important to note, that "*efficient*" is relative to the goal you are trying to achieve.
+  For example, if you just started learning to program, then your goal isn't to make the program as fast as possible, if this is not part of the solution to the actual problem. Sometimes, you might even want to experiment with "weird" programming patterns, just so you get more used to the concept of programming and adjust your "feel" to it, constantly.
+
+  The more you practice, the better everything you do. You will have less of a hard time starting on a project, from scratch, while absolute beginners often truly struggle with writing the first line of code, as they "don't know where to start". You will much easier find little projects to accomplish. You will be able to break down bigger issues into smaller ones easier and easier, the more experience you accumulate.
+
+  All this will make you a better programmer. Keep on keeping on.
+
+  ## Pillars of Learning
+
+  1. Follow the ground rules.
+     1. Just do it. &#10004;
+     2. Don't knock it, before you try it.
+     3. Don't hesitate to push the button.
+     4. Never forget the problem you are trying to solve.
+  2. Never give up. Always continue. Practice establishes Master.
+  3. Research all background knowledge yourself, ***when* you need it**. Do not shift responsibility onto others, especially regarding learning resources and explanations on how to do something. Do not rely on guides written by others. Make your own guides for yourself, by yourself!
+  4. "Ownership" mindset: own what you do. Never complain, never explain. Just do it. &#10004;
+
+  ### Background Knowledge
+
+  The most important point about researching background knowledge is the fact, that it's pretty much useless to "research/teach ahead", as most courses at any facility do since education systems were established across the globe.
+
+  Research knowledge, you need ***right now***. Do not read a book or watch courses, about what you might need in a long while perhaps once. Attempt to implement a solution to an already analysed problem and then research the tools needed for this specific job.
+
+  You keep learning more tools by constantly approaching different projects with different, restrictions, guidelines, rules and use-cases in different ways. ***This*** is the actual way to learn a wide variety of programming concepts, languages, patterns and the *thinking* part of it.
+
+  Any knowledge you obtain, which you do not *immediately put to practice* is an absolute waste of time.
+
+  I suggest to everyone to do the opposite of what educational institutes usually do.
+  1. Start with the problem.
+  2. Analyse the problem.
+  3. Understand the problem, truly.
+  4. ***Then***, and only **then**, start thinking about the solution, what tools you need and what you need to learn to be able to use them, etc. ***Never*** start with theoretical solutions in a vacuum. It's useless.
+
+  ## Programming is more than you think
+
+  Programming is not just "coding". Programming was never about typing and producing as much or as sophisticated code as possible. The "code" is just a tool.
+
+  You use "code" to solve a problem, which you have analysed to begin with.
+  1. You analyse the problem, until you understand it as much as possible.
+  2. You craft a solution for this problem, according to rules, guidelines and other restrictions in your particular scenario and use-case.
+  3. You make sure, the solution actually solves the problem, by verifying its effectiveness.
+
+  Teaching yourself to program is the easiest and fastest way to teach yourself problem solution, of any kind.
+  Being a good programmer means, that you can solve real life problems in any way, not only code or at the computer, at all.
+
+  Being a good programmer makes you a good problem solver, who is needed anywhere and everywhere.
+
+  Essentially, programming is not about typing - it is about thinking.
+
+  The best programmers do not "code" - they design practical, efficient & use-case appropriate solutions.
+
+  ## Addendum
+
+  I've written this guide in a fairly short amount of time. It is very rough and far from having the quality standard I would appreciate, but you have to start somewhere, right?
+
+  Am pretty sure, I will evolve this guide over time and make it more readable, understandable and useful to wannabe beginner programmers.
+
+  Speaking of "wannabe beginner programmers", everyone who just watched/read tutorials about programming, without ever having written an error-free compilable program on his computer by himself, is not a beginner programmer. He is a *wannabe beginner programmer*, as he did not even begin to do anything. Watching & reading is literally doing nothing, when actually trying to learn programming.
+
+  *Doing* starts with executing the implementation of a solution to a thoroughly analysed problem, through the most likely means of writing code.
+
+  ___
+
+  Obviously, everything in this guide is very opinianted and heavily based on my years and years of experience of teaching myself anything, especially programming.  
+  I already know, that there will be tons of readers disagreeing with what is said here and this only means, that they are a different learning type. Some people "learn ahead" and it works for them. For pretty much everyone I know, including and especially myself, this is not the case, at all. This is especially not the case for most people who have a tendency to to be interested in programming or similar activities, to begin with.
+
+  If you are happy with the "teach/learn ahead" approach, then the way common educational places handle such topics will suffice for you.

@@ -6,6 +6,8 @@ yaml = [
     "https://pub.brani.dev/raw/demo.yaml",
     "https://pub.brani.dev/raw/kyaml.toml",
     "https://pub.brani.dev/raw/kyaml.yaml",
+    "https://pub.brani.dev/raw/programming.toml",
+    "https://pub.brani.dev/raw/programming.yaml",
     "https://pub.brani.dev/raw/sophistication.toml",
     "https://pub.brani.dev/raw/sophistication.yaml",
 ]

@@ -17,6 +17,9 @@
         <loc>https://pub.brani.dev/categories/devops/</loc>
     </url>
     <url>
+        <loc>https://pub.brani.dev/categories/education/</loc>
+    </url>
+    <url>
         <loc>https://pub.brani.dev/categories/meta/</loc>
     </url>
     <url>
@@ -34,6 +37,10 @@
         <loc>https://pub.brani.dev/page/1/</loc>
     </url>
     <url>
+        <loc>https://pub.brani.dev/programming/</loc>
+        <lastmod>2025-09-21T02:49:57+02:00</lastmod>
+    </url>
+    <url>
         <loc>https://pub.brani.dev/sophistication/</loc>
         <lastmod>2025-08-19T20:39:23+02:00</lastmod>
     </url>
@@ -48,6 +55,9 @@
     </url>
     <url>
         <loc>https://pub.brani.dev/tags/dev-programming-functional/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/dev-programming/</loc>
     </url>
     <url>
         <loc>https://pub.brani.dev/tags/dev-software-architecture/</loc>
@@ -87,5 +97,8 @@
     </url>
     <url>
         <loc>https://pub.brani.dev/tags/devops/</loc>
+    </url>
+    <url>
+        <loc>https://pub.brani.dev/tags/education-programming/</loc>
     </url>
 </urlset>
